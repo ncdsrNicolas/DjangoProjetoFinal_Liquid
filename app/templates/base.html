@@ -37,6 +37,16 @@
         </div>
     </nav>
 
+    <!-- Bloco de mensagens -->
+    {% if messages %}
+    <div class="messages container mt-3">
+        {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
 
     <main class="container mt-4">
         {% block content %}{% endblock %}
