@@ -1,0 +1,141 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background: #2c3e50;
+    color: #fff;
+    padding: 15px;
+}
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar .brand {
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: #fff;
+    text-decoration: none;
+}
+.navbar .menu a {
+    color: #fff;
+    margin-left: 15px;
+    text-decoration: none;
+}
+.navbar .menu a:hover {
+    text-decoration: underline;
+}
+.navbar .user {
+    margin-right: 10px;
+    color: #ddd;
+}
+
+footer {
+    background: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    margin-top: 40px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+.card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+.card-body {
+    padding: 15px;
+}
+.produto-img {
+    height: 250px;
+    width: 100%;
+    object-fit: contain;
+    background-color: #fff;
+}
+.preco {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.form-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.form-card input,
+.form-card textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+.form-card input:focus,
+.form-card textarea:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.btn-primary {
+    background: #3498db;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+}
+.btn-primary:hover {
+    background: #2980b9;
+}
+.btn-success {
+    background: #27ae60;
+    color: #fff;
+    padding: 10px 15px;
+}
+.mt-4 {
+    margin-top: 30px;
+}
+
+.text-center {
+    text-align: center;
+}
+.logo {
+    height: 40px;
+    width: auto;
+    vertical-align: middle;
+}
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #333;
+    text-decoration: none;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+}
+
+.site-name {
+    font-family: 'Segoe UI', sans-serif;
+    color: #fff;
+}

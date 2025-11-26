@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Liquid{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="{% url 'index' %}" class="brand">
+                {% if pagina.logo_do_site %}
+                <img src="{{ pagina.logo_do_site.url }}" alt="Logo" class="logo">
+                {% endif %}
+                <span class="site-name">
+                    {{ pagina.nome_do_site|default:" " }}
+                </span>
+            </a>
+            <div class="menu">
+                {% if user.is_authenticated %}
+                <span class="user">Olá, {{ user.username }}</span>
+                <a href="{% url 'perfil' %}">Perfil</a>
+                <a href="{% url 'logout' %}" class="btn-logout">Logout</a>
+                <a href="{% url 'index' %}">Home</a>
+                <a href="{% url 'produtos' %}">Produtos</a>
+                {% else %}
+                <a href="{% url 'index' %}">Home</a>
+                <a href="{% url 'produtos' %}">Produtos</a>
+                <a href="{% url 'cadastro' %}">Cadastro</a>
+                <a href="{% url 'login' %}" class="btn-login">Entrar</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+
+    <main class="container mt-4">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 - Projeto Liquid</p>
+    </footer>
+</body>
+
+</html>

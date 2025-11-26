@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Perfil{% endblock %}
+{% block content %}
+<h2>Perfil de {{ request.user.username }}</h2>
+
+<h3>Meus Pedidos</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Produto</th>
+            <th>Quantidade</th>
+            <th>Total</th>
+            <th>Data</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pedido in pedidos %}
+        <tr>
+            <td>{{ pedido.id }}</td>
+            <td>{{ pedido.produto.nome }}</td>
+            <td>{{ pedido.quantidade }}</td>
+            <td>R$ {{ pedido.total }}</td>
+            <td>{{ pedido.data }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="5">Nenhum pedido realizado.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

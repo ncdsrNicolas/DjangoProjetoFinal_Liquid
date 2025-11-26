@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Todos os Produtos{% endblock %}
+{% block content %}
+<h2 class="text-center">Todos os Produtos</h2>
+<div class="grid">
+    {% for produto in produtos %}
+    <div class="card">
+        {% if produto.foto %}
+            <img src="{{ produto.foto.url }}" class="produto-img" alt="{{ produto.nome }}">
+        {% endif %}
+        <div class="card-body">
+            <h3>{{ produto.nome }}</h3>
+            <p>{{ produto.descricao }}</p>
+            <p class="preco">R$ {{ produto.preco }}</p>
+            {% if user.is_authenticated %}
+                <a href="{% url 'compra' produto.id %}" class="btn-primary">Comprar</a>
+            {% else %}
+                <a href="{% url 'login' %}" class="btn-primary">Entrar para comprar</a>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

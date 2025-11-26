@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}Início{% endblock %}
+{% block content %}
+<div class="text-center mb-5">
+    <h1>{{ pagina.texto_chamada }}</h1>
+    <a href="{% url 'cadastro' %}" class="btn-primary">Cadastre-se</a>
+</div>
+
+<div class="row mb-5">
+    <div class="col">
+        <h2>Sobre</h2>
+        <p>{{ pagina.texto_sobre }}</p>
+    </div>
+    <div class="col">
+        {% if pagina.imagem_sobre %}
+        <img src="{{ pagina.imagem_sobre.url }}" class="img-sobre" alt="Sobre">
+        {% endif %}
+    </div>
+</div>
+
+<h2 class="text-center">Produtos</h2>
+<div class="grid">
+    {% for produto in produtos %}
+    <div class="card">
+        {% if produto.foto %}
+            <img src="{{ produto.foto.url }}" class="produto-img" alt="{{ produto.nome }}">
+        {% endif %}
+        <div class="card-body">
+            <h3>{{ produto.nome }}</h3>
+            <p>{{ produto.descricao }}</p>
+            <p class="preco">R$ {{ produto.preco }}</p>
+            {% if user.is_authenticated %}
+                <a href="{% url 'compra' produto.id %}" class="btn-primary">Comprar</a>
+            {% else %}
+                <a href="{% url 'login' %}" class="btn-primary">Entrar para comprar</a>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="text-center mt-4">
+    <a href="{% url 'produtos' %}" class="btn-success">Ver todos os produtos</a>
+</div>
+
+<h2>Contato</h2>
+<p><strong>Endereço:</strong> {{ pagina.endereco }}</p>
+<p><strong>Email:</strong> {{ pagina.email }}</p>
+<p><strong>WhatsApp:</strong> {{ pagina.whatsapp }}</p>
+
+<form method="post" class="form-card">
+    {% csrf_token %}
+    <input type="text" name="nome" placeholder="Seu nome" required>
+    <input type="email" name="email" placeholder="Seu email" required>
+    <textarea name="mensagem" placeholder="Sua mensagem" required></textarea>
+    <button type="submit" class="btn-success">Enviar</button>
+</form>
+
+{% endblock %}
