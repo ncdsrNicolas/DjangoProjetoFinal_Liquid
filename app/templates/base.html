@@ -22,7 +22,7 @@
             </a>
             <div class="menu">
                 {% if user.is_authenticated %}
-                <span class="user">Olá, {{ user.username }}</span>
+                <a><span class="user">Olá, {{ user.username }}</span></a>
                 <a href="{% url 'perfil' %}">Perfil</a>
                 <a href="{% url 'logout' %}" class="btn-logout">Logout</a>
                 <a href="{% url 'index' %}">Home</a>
@@ -37,23 +37,27 @@
         </div>
     </nav>
 
-    <!-- Bloco de mensagens -->
     {% if messages %}
     <div class="messages container mt-3">
         {% for message in messages %}
-            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
-                {{ message }}
-            </div>
+        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+            {{ message }}
+            <button type="button" class="close-btn" onclick="this.parentElement.style.display='none';">&times;</button>
+        </div>
         {% endfor %}
     </div>
     {% endif %}
 
-    <main class="container mt-4">
+    <main class="content-container">
         {% block content %}{% endblock %}
     </main>
 
     <footer>
-        <p>&copy; 2025 - Projeto Liquid</p>
+        <div class="container">
+            <img src="{{ pagina.logo_do_site.url }}" alt="Logo" class="logo">
+            <hr>
+            <p>&copy; 2025 - Projeto Liquid</p>
+        </div>
     </footer>
 </body>
 

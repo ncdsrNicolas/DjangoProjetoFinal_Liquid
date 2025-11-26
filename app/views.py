@@ -8,7 +8,7 @@ from .models import Pagina, Produto, Contato, Pedido
 
 def index(request):
     pagina = Pagina.objects.first()
-    produtos = Produto.objects.all()[:12]
+    produtos = Produto.objects.all()[:8]
 
     if request.method == "POST":
         nome = request.POST.get("nome")
@@ -38,7 +38,7 @@ def cadastro(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             usuario = form.save()
-            login(request, usuario)  # já loga após cadastro
+            login(request, usuario)
             messages.success(request, "Cadastro realizado com sucesso! Bem-vindo(a).")
             return redirect("index")
         else:

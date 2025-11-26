@@ -8,7 +8,6 @@ class BaseModel(models.Model):
     class Meta:
         abstract = True
 
-
 class Pagina(BaseModel):
     nome_do_site = models.CharField(max_length=200)
     logo_do_site = models.ImageField(upload_to='logos/', blank=True, null=True)
@@ -22,7 +21,6 @@ class Pagina(BaseModel):
     def __str__(self):
         return self.nome_do_site
 
-
 class Produto(BaseModel):
     nome = models.CharField(max_length=200)
     estoque = models.PositiveIntegerField()
@@ -33,7 +31,6 @@ class Produto(BaseModel):
     def __str__(self):
         return self.nome
 
-
 class Contato(BaseModel):
     nome = models.CharField(max_length=200)
     email = models.EmailField()
@@ -41,7 +38,6 @@ class Contato(BaseModel):
 
     def __str__(self):
         return f"{self.nome} - {self.email}"
-
 
 class Pedido(BaseModel):
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
