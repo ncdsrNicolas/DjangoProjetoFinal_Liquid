@@ -1,8 +1,3 @@
 #!/usr/bin/env bash
-# Script de build para Render
-
-# Aplica migrações
-python manage.py migrate --noinput
-
-# Coleta arquivos estáticos
+pip install -r requirements.txt
 python manage.py collectstatic --noinput
