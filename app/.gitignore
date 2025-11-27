@@ -1,0 +1,18 @@
+# Ambiente virtual
+venv/
+*.pyc
+__pycache__/
+
+# Banco SQLite (se estiver usando localmente)
+db.sqlite3
+
+# Arquivos estáticos coletados pelo collectstatic
+/staticfiles/
+/media/
+
+# Configurações locais e segredos
+.env
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
