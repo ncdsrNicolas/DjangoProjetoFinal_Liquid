@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: liquid-app
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn liquid.wsgi:application"
+    envVars:
+      - key: SECRET_KEY
+        value: 'django-insecure-h7ar##3n^6@+(ggelu@&-r)nx6mcxy3=n=pu#2_z8-2(=z=-gf'
+      - key: DEBUG
+        value: "False"

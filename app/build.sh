@@ -1,3 +1,8 @@
 #!/usr/bin/env bash
-python manage.py migrate
+# Script de build para Render
+
+# Aplica migrações
+python manage.py migrate --noinput
+
+# Coleta arquivos estáticos
 python manage.py collectstatic --noinput
