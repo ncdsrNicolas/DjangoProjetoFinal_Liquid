@@ -12,6 +12,8 @@ class Pagina(BaseModel):
     nome_do_site = models.CharField(max_length=200)
     logo_do_site = models.ImageField(upload_to='logos/', blank=True, null=True)
     texto_chamada = models.CharField(max_length=200)
+    subtitulo_chamada = models.CharField(max_length=200, blank=True, null=True)
+    imagem_fundo = models.ImageField(upload_to='fundo/', blank=True, null=True)
     texto_sobre = models.TextField()
     imagem_sobre = models.ImageField(upload_to='sobre/', blank=True, null=True)
     endereco = models.CharField(max_length=200)

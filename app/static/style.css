@@ -10,10 +10,22 @@ html, body {
 body {
     font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
     background: #121212;
+    color: #e0e0e0;
     margin: 0;
     padding: 0;
-    color: #e0e0e0;
-    line-height: 1.5;
+}
+
+h1, h2, h3,
+.navbar .brand {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+    color: #a569bd;
+}
+
+.navbar .brand {
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
 .container,
@@ -114,8 +126,6 @@ h2 {
     text-align: center;
     color: #a569bd;
 }
-
-
 
 .btn,
 .btn-primary,
@@ -226,11 +236,124 @@ h2 {
     flex: 1;
     min-width: 280px;
 }
-.img-sobre {
-    max-width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+
+.sobre-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin: 30px 0;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
 }
+
+.sobre-texto {
+    flex: 1;
+    min-width: 280px;
+}
+.sobre-texto p {
+    text-align: justify;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #e0e0e0;
+}
+
+.sobre-imagem {
+    flex: 1;
+    min-width: 280px;
+    display: flex;
+    justify-content: center;
+}
+.img-sobre {
+    width: 400px;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .sobre-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    .sobre-texto, .sobre-imagem {
+        width: 100%;
+    }
+    .sobre-texto p {
+        text-align: left;
+    }
+    .img-sobre {
+        max-width: 90%;
+    }
+}
+
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    padding: 40px;
+    color: #fff;
+    text-align: left;
+}
+.hero-content h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #a569bd;
+}
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+.hero-content h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #a569bd;
+}
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+.hero-content .btn-primary {
+    padding: 14px 28px;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .hero-section { height: 60vh; }
+    .hero-content h1 { font-size: 2rem; }
+    .hero-subtitle { font-size: 1rem; }
+}
+@media (max-width: 480px) {
+    .hero-section { height: 50vh; }
+    .hero-content { padding: 20px; }
+    .hero-content h1 { font-size: 1.6rem; }
+}
+
 
 .profile-header {
     margin-bottom: 16px;

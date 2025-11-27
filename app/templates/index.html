@@ -1,19 +1,32 @@
 {% extends 'base.html' %}
 {% block title %}Início{% endblock %}
 {% block content %}
-<div class="text-center mb-5">
-    <h1>{{ pagina.texto_chamada }}</h1>
-    <a href="{% url 'cadastro' %}" class="btn-primary">Cadastre-se</a>
+
+<div class="hero-section"
+     {% if pagina.imagem_fundo %}
+         style="background-image: url('{{ pagina.imagem_fundo.url }}');"
+     {% else %}
+         style="background-image: url('/static/img/fallback.jpg');"
+     {% endif %}>
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <h1>{{ pagina.texto_chamada }}</h1>
+            <p class="hero-subtitle">{{ pagina.subtitulo_chamada }}</p>
+            <a href="{% url 'cadastro' %}" class="btn-primary">Cadastre-se</a>
+        </div>
+    </div>
 </div>
 
-<div class="row mb-5">
-    <div class="col">
+
+<div class="sobre-section">
+    <div class="sobre-texto">
         <h2>Sobre</h2>
         <p>{{ pagina.texto_sobre }}</p>
     </div>
-    <div class="col">
+
+    <div class="sobre-imagem">
         {% if pagina.imagem_sobre %}
-        <img src="{{ pagina.imagem_sobre.url }}" class="img-sobre" alt="Sobre">
+        <img src="{{ pagina.imagem_sobre.url }}" alt="Sobre" class="img-sobre">
         {% endif %}
     </div>
 </div>

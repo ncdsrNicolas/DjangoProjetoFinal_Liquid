@@ -1,0 +1,5 @@
+Django>=4.0
+Pillow
+gunicorn
+whitenoise
+psycopg2-binary
