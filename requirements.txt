@@ -1,9 +1,6 @@
 Django>=5.2,<6.0
-asgiref>=3.11.0
-sqlparse>=0.5.3
-tzdata
 Pillow
-gunicorn          # servidor para produção
-whitenoise        # para servir arquivos estáticos
-dj-database-url   # se for usar PostgreSQL
-psycopg2-binary   # se for usar PostgreSQL
+gunicorn
+whitenoise
+dj-database-url
+psycopg2-binary
